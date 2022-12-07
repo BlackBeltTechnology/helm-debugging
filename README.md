@@ -1,5 +1,7 @@
 # helm-debugging
 debugging helm...
+## Opened issue
+https://github.com/helm/helm/issues/11611
 ## Values
 Path: `mychart/values.yaml`
 ### A:
