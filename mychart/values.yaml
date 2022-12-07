@@ -1,0 +1,32 @@
+# Default values for helm-debugging.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+name: main-chart
+
+menu: lunch
+
+meal:
+  food: goulash
+  drink: coffee
+
+fruit:
+  enabled: true
+  data: apple
+
+extra:
+  enable: ""
+  data: []
+
+# A
+#deployments:
+#  mysubchart1:
+#    enabled: false
+#  mysubchart2:
+#    enabled: true
+
+# B
+mysubchart1:
+  enabled: false
+mysubchart2:
+  enabled: true

@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    chart-name: {{ .Chart.Name }}
+    release-name: {{ .Release.Name }}
+data:
+  sayhello: "Hello World"
+  menu: {{ .Values.menu | upper | quote }}
+  food: {{ .Values.meal.food | quote }}
+  drink: {{ .Values.meal.drink | default "tea" | quote }}
+  {{- if or (eq .Values.meal.drink "coffee") (eq .Values.meal.drink "tea") }}
+  mug: "true"
+  {{- end }}
+  {{ if .Values.fruit.enabled -}}
+  fruit: {{ .Values.fruit.data | quote }}
+  {{ end }}
+  {{ if .Values.extra.enabled }}
+  {{- range .Values.extra.data }}
+    - {{ . | quote }}
+  {{- end}}
+  {{ end }}

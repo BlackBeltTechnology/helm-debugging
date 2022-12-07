@@ -1,0 +1,64 @@
+Release "helm-debugging" does not exist. Installing it now.
+NAME: helm-debugging
+LAST DEPLOYED: Wed Dec  7 13:16:19 2022
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+deployments:
+  mysubchart1:
+    enabled: false
+  mysubchart2:
+    enabled: true
+extra:
+  data: []
+  enable: ""
+fruit:
+  data: apple
+  enabled: true
+meal:
+  drink: coffee
+  food: goulash
+menu: lunch
+mysubchart2:
+  dessert: muffin
+  global: {}
+  name: subchart-2
+name: main-chart
+
+HOOKS:
+MANIFEST:
+---
+# Source: helm-debugging/charts/mysubchart2/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subchart-2
+  namespace: default
+  labels:
+    chart-name: mysubchart2
+    release-name: helm-debugging
+data:
+  dessert: muffin
+---
+# Source: helm-debugging/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: main-chart
+  namespace: default
+  labels:
+    chart-name: helm-debugging
+    release-name: helm-debugging
+data:
+  sayhello: "Hello World"
+  menu: "LUNCH"
+  food: "goulash"
+  drink: "coffee"
+  mug: "true"
+  fruit: "apple"
+

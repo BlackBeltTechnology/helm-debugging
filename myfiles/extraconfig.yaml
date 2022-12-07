@@ -1,0 +1,13 @@
+# Extra config values for helm-debugging.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+extra:
+  enable: true
+  data:
+  - pepper
+  - salt
+  - crushed red pepper
+
+mysubchart1:
+  dessert: pudding
